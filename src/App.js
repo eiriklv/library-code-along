@@ -1,26 +1,46 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Overview from './components/Overview';
+import Details from './components/Details';
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      view: 'details',
+      params: {},
+    };
+  }
+
+  handleChangeView(view = '', params = {}) {
+    this.setState({ view, params });
+  }
+
+  render() {
+    const { view, params } = this.state;
+
+    let ActiveView;
+
+    switch (view) {
+      case 'details':
+        ActiveView = Details;
+        break;
+      default:
+        ActiveView = Overview;
+    }
+
+    return (
+      <div>
+        <h1>Library App</h1>
+        <ActiveView
+          {...params}
+          changeView={this.handleChangeView.bind(this)}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;

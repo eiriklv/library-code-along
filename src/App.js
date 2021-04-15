@@ -3,13 +3,15 @@ import './App.css';
 
 import Overview from './components/Overview';
 import Details from './components/Details';
+import Edit from './components/Edit';
+import Add from './components/Add';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      view: 'details',
+      view: '',
       params: {},
     };
   }
@@ -25,10 +27,19 @@ class App extends React.Component {
 
     switch (view) {
       case 'details':
-        ActiveView = Details;
-        break;
+      ActiveView = Details;
+      break;
+
+      case 'edit':
+      ActiveView = Edit;
+
+      break;
+      case 'add':
+      ActiveView = Add;
+
+      break;
       default:
-        ActiveView = Overview;
+      ActiveView = Overview;
     }
 
     return (

@@ -28,6 +28,11 @@ class Overview extends React.Component {
     changeView('details', { id: bookId });
   }
 
+  handleAddClick() {
+    const { changeView } = this.props;
+    changeView('add');
+  }
+
   render() {
     const { books, isLoading, error } = this.state;
 
@@ -62,7 +67,7 @@ class Overview extends React.Component {
 
     return (
       <div>
-        <button>Add new book</button>
+        <button onClick={this.handleAddClick.bind(this)}>Add new book</button>
         {books.length ? (
           <ul className="books">{bookElements}</ul>
         ) : (

@@ -62,7 +62,7 @@ function getBooks() {
 }
 
 function getBookById(id) {
-  return books.find((book) => book.id === id);
+  return books.find((book) => book.id == id);
 }
 
 function addBook(book) {
@@ -79,13 +79,13 @@ function addBook(book) {
 }
 
 function updateBook(updatedBook) {
-  const indexOfBook = books.findIndex((book) => book.id === updatedBook.id);
+  const indexOfBook = books.findIndex((book) => book.id == updatedBook.id);
   books.splice(indexOfBook, 1, updatedBook);
   return updatedBook;
 }
 
 function deleteBookById(id) {
-  const indexOfBook = books.findIndex((book) => book.id === id);
+  const indexOfBook = books.findIndex((book) => book.id == id);
   books.splice(indexOfBook, 1);
 }
 

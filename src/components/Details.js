@@ -84,10 +84,14 @@ class Details extends React.Component {
     return (
       <div>
         <button onClick={this.handleBackClick.bind(this)}>Back to overview</button>
-        <img className="cover" src={book.coverImage} />
-        <h3>{book.title}</h3>
-        <h4>Written by {book.author}</h4>
-        <p>{book.summary}</p>
+        <div style={{ padding: 10 }}>
+          <img className="cover" src={book.coverImage} />
+        </div>
+        <div style={{ maxWidth: 500, margin: '0 auto' }}>
+          <h3>{book.title}</h3>
+          <h4>Written by {book.author}</h4>
+          <p>{book.summary}</p>
+        </div>
         <button onClick={this.handleEditClick.bind(this)}>Edit</button>
         <button onClick={this.handleDeleteClick.bind(this)}>Delete</button>
       </div>
